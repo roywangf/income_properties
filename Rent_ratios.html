@@ -11779,7 +11779,8 @@ div#notebook {
 We then examine what characteristics are desirable in an income property and observe what other traits these properties share.</p>
 <p>The most notable observation is that areas on the edges of major metropolitan areas are among the best income properties in terms of return on investment.</p>
 <p><a href="https://public.tableau.com/profile/roy.wang#!/vizhome/Rental_property_markets/IncomePropertyFinder">Original Design</a></p>
-<p><a href="https://public.tableau.com/profile/roy.wang#!/vizhome/Income_Properties/IncomeProperties?publish=yes">Final Design</a></p>
+<p><a href="https://public.tableau.com/profile/roy.wang#!/vizhome/Income_Properties_rev2/IncomeProperties?publish=yes">Version 2</a></p>
+<p><a href="https://public.tableau.com/profile/roy.wang#!/vizhome/Income_Properties_rev3/IncomeProperties">Version 3</a></p>
 <h2 id="Design">Design<a class="anchor-link" href="#Design">&#182;</a></h2><p>Time series data on rents and home prices are best represented as line charts. Separated by zipcode, we filter to leave a cross section of values and rents. To get an immediate sense of where we're going, we present a bar chart showing the range of price/rent ratio across the filtered set. This set may be altered by the filter dropdown.</p>
 <p>We then do a direct rent-value scatter plot, coloured by year to show some of the yearly variation. We then zoom in on the core area most investors would be interested in, and show the simple linear relation in this region with a well-fitting trend line. While the nominal ROI would be equal for any data point on the member of the slope family, higher cost entails higher borrowing costs, higher taxes, lower inventory &amp; turnover, and generally higher risk, so all things being equal, the lower cost properties are better investments.</p>
 <p>We then show a map with the median color scaled down to more easily show good value areas. We show 4 major metropilitan areas with many high-value zipcodes.</p>
@@ -11811,7 +11812,7 @@ I love the maps of your Tableau story but I feel in the first dashboard the line
 <li>is the bar graph below just the blue ones?</li>
 </ul>
 <p>Last tab - just explain what you are showing and how you selected the specific markets</p>
-<h2 id="Final-Design">Final Design<a class="anchor-link" href="#Final-Design">&#182;</a></h2><ol>
+<h2 id="Version-2">Version 2<a class="anchor-link" href="#Version-2">&#182;</a></h2><ol>
 <li><p>Reduced number of lines to make it more readable. Put long view on price, but then also lined up price/rent data for smaller subset of rent. Put bar chart to show variation of rent/price to justify existence and search for optimal markets.</p>
 </li>
 <li><p>Showed full rent to price scatter plot, colored by year to show yearly variation. I would have preferred to color by zipcode, but there were too many datapoints for this. A blown up view of the linear, low-cost portion of the graph is most useful, showing above trend line and outliers as desirable properties. However, plotting and ordering them on a bar chart gives more definite selection. For example, one apparent outlier isn't really ideal because of how expensive the base cost is.</p>
@@ -11821,6 +11822,40 @@ I love the maps of your Tableau story but I feel in the first dashboard the line
 <li><p>There were some errors in the original income plots, so corrected, the high income ratios don't come from a neat box as before, but really along a diagonal trend line. Because of small number, there was no need to quantify it with a precise boundary line. Dots on a zoomed out map presents very clear picture of ideal market distribution.</p>
 </li>
 <li><p>Zoomed back into 4 best markets, we overlay high ratio with large yellow dots representing high income ratios. This is useful to maintain an overall perspective on local and adjacent markets via the color scale. I maintained rent &amp; price on mouse-over to always keep basic data available.</p>
+</li>
+</ol>
+<h2 id="Feedback-2">Feedback 2<a class="anchor-link" href="#Feedback-2">&#182;</a></h2><p>Randy J. 5:21 PM, April 7th</p>
+<p>I like what you did with the charts, looks like you did some pretty nice tricks with the tool.  But I dont understand the story.  From the first slide caption I got that home prices don't align with the cost to rent, but I got lost after that.  What are you trying to tell me, what's the message I'm to be left with?  Also, on the maps I could zoom but couldn't pan, so I could not bring the area I wanted to see in detail into view.</p>
+<h4 id="Udacity-review">Udacity review<a class="anchor-link" href="#Udacity-review">&#182;</a></h4><p>This is a very interesting dataset you've decided to tackle, and I enjoyed combing through your presentation and learning more about the indicator you've decided to focus on. As I understand your presentation, that indicator is the ratio between mean monthly rent and mean house price by zip code. Further, you present this ratio as a good indicator of potential investment value. This certainly gives your presentation the focus it needs to be effective, have impact, and meet the requirements for this project. There are, however, some issues with how you've gone about presenting (and even calculating) your findings.</p>
+<p>I don't have much experience with this type of data and the key indicators related to it, but this particular ratio as I understand should actually be reversed. The commonly cited ratio I found is mean house price to annualized rental price. So instead of being a decimal, the ratio should give you a floating point value greater than 1. You might ask, "Why does this matter when the ratio as you've calculated it can still used to compare the relationship between rental and purchase prices?" The answer I would offer is that, although it might be investment jargon, the price-to-rent ratio is a well-known investment measure, and you can leverage this in communicating to your intended audience.</p>
+<p>You present the ratio (as you've calculated it) as a good indicator of investment opportunities with a high potential return, but don't really go into how or why that's true. Again, I'm not particularly investment savvy, but what I understand about the price-to-rent ratio is that it's an indicator of whether it's better to rent or buy. If you have a different (or deeper and better) understanding then you need to do more to guide the reader to the conclusions you present. As it stands now your presentation is a bit difficult to interpret. See the comments under the next requirement for more details.</p>
+<p>You're presentation is very granular. This is a feature that I really appreciate as someone who prefers to understand a topic in as much detail as possible. At the same time, it is not very user-friendly and proved difficult to wade through in search of some meaningful takeaway. There's still some substantial and even foundational work to be done here in terms of putting together a presentation design that communicates clearly to the reader. Here are some issues that I encountered:</p>
+
+<pre><code>The captions could be used more effectively by guiding the reader on how to use the dashboards they describe and introducing the price-to-rent ratio as though to someone completely unfamiliar with the topic. Some of what you have in the captions right now are difficult to understand. Take for example the first caption: "Single-family house prices show similar trends, but don't always align with rents, which fluctuate as more as a percentage." It's not clear what single-family house prices are similar to or what rents are a percentage of. There are several other similar examples in the other captions that need revision. Don't assume that your audience (for this project it's a bit ambiguous who that is) knows everything that you do or is familiar with the dataset and the housing market.
+
+On the final slide, the exact meaning of in/out is not clear. You've encoded this as large and small circles on the map, but it's not clear how to interpret this variable. I think "in" means that the price-to-rent ratio is favorable for investing, but it needs to be made more clear. Again, on this slide, you haven't taken full advantage of the caption space where you could explain both the meaning of this variable and direct the reader on how to best to interpret the maps.
+
+You've broken the data down into price-to-rent by zip code, which is quite a fine-grain look at the focus indicator. This is fine but it seems like zip codes (unless it's the one your live in) can be difficult for humans to place in a meaningful geographic context. One way to improve on this might be to add the city and state on the hover tool on your map plots if the state is included as a feature in the dataset.
+
+The map on the third slide deserves a title. The captions aren't entirely clear what is being portrayed in the map, and a title has the added benefit of immediately cluing the reader in to what the map is all about.
+
+This is a huge amount of data (mostly the high volume of zip codes), which can become unmanageable when building a presentation but also difficult for the reader to make sense of. I think part of the problem, again, is the cursory captions that you'll need to expand on. At the same time, you might consider looking for a way to focus on some subset of the data or generalize on the data as a whole. You've done this with the line plot of the first slide by selecting example zip codes as representative of different trends. This is just a suggestion and not a requirement, though. One idea that occurs to me would be to group zip codes by their first one or two digits (as a proxy for region) and look for trends after grouping them.
+
+The addition of the median income variable added some complexity to your analysis and worked very well particularly because the variable influences house buying so much. Nice work there!
+
+</code></pre>
+<h2 id="Version-3">Version 3<a class="anchor-link" href="#Version-3">&#182;</a></h2><ol>
+<li><p>I put much more explanatory text for both the idea and what the charts represent. I still believe that rental yield is the best indicator, but changing it to a percentage makes it a little more intuitive both for investors and the layperson. Putting the definition right on the chart also makes it easier to find.</p>
+</li>
+<li><p>Very few changes here. Just added the ability to filter from the bar chart.</p>
+</li>
+<li><p>Added title, made sure solor scale showed yield as a percentage.</p>
+</li>
+<li><p>It is income to rent, not income to rent/price that is the better indicator of a renter's capacity to pay. Also, adding some conditional statements on the calculated fields was necessary the sets are indicative of 2018 conditions. Also added filtering via the map.</p>
+</li>
+<li><p>Added a new chart filtering best rental yield markets by high income-rent ratios. This is made for easy consumption and the best summary slide.</p>
+</li>
+<li><p>Put the mixed map of 4 regions back, overlaying dots for good income-rent, and color scale for rental yield. This map is required to get a more nuanced, complete view of a local market as well as to find threshold markets where yield is high but may have just missed the income-rent cutoff in the previous slide.</p>
 </li>
 </ol>
 <h3 id="Resources">Resources<a class="anchor-link" href="#Resources">&#182;</a></h3><ul>
